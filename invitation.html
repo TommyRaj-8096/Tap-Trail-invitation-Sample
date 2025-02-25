@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body
+    class="min-h-screen bg-no-repeat bg-cover bg-center sm:bg-top md:bg-center lg:bg-cover"
+    style="background-image: url('/background.jpg')"
+  >
+    <div>
+      <header class="flex justify-center">
+        <img
+          class="w-50 mt-15 md:w-100"
+          src="center embolam.png"
+          alt="embolam"
+        />
+      </header>
+      <main class="flex justify-center space-y-6 mt-10 gap-5">
+        <div class="relative w-80">
+          <!-- Carousel Wrapper -->
+          <div id="carousel" class="overflow-hidden">
+            <!-- Carousel Items -->
+            <div class="flex transition-all duration-700 ease-in-out">
+              <div class="w-full flex-shrink-0">
+                <img src="image 1.jpg" alt="Image 1" class="w-full" />
+              </div>
+              <div class="w-full flex-shrink-0">
+                <img src="image 2.jpg" alt="Image 2" class="w-full" />
+              </div>
+              <div class="w-full flex-shrink-0">
+                <img src="image 3.jpg" alt="Image 3" class="w-full" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <section class="flex justify-center space-y-6 mt-2 gap-5">
+        <div class="text-center text-2xl font-serif">
+            <h1>With Joyful Hearts</h1>
+            <h1>We invite you to celebrate the union of</h1>
+            <div class="flex justify-center items-center">
+              <img
+                class="w-50 mt-2"
+                src="Couple name.png"
+                alt="name of couple"
+              />
+            </div>
+      </section>
+      <div class="flex justify-center">
+        <div class="flex justify-center items-center gap-3 mt-2 p-5 font-bold">
+            <!-- Location Button -->
+            <a href="https://www.google.com/maps/place/13%C2%B001'29.1%22N+80%C2%B007'52.3%22E/@13.02474,80.1286241,17z/data=!3m1!4b1!4m4!3m3!8m2!3d13.02474!4d80.131199?authuser=0&entry=ttu&g_ep=EgoyMDI1MDIxOS4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="bg-yellow-600 text-white font-bold text-center px-6 py-3 rounded-md whitespace-nowrap w-full md:w-auto hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400"> The Venue </a>
+          
+            <!-- Save the Date Button -->
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+Event&dates=20250829T040000Z/20250829T053000Z&details=Join+us+at+the+Marriage+Hall+for+a+special+event!&location=Marriage+Hall" target="_blank" class="bg-yellow-600 text-white font-bold text-center px-6 py-3 rounded-md whitespace-nowrap w-full md:w-auto hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400"> Save The Date </a>
+          
+            <!-- Download Invitation Button -->
+            <a href="Invitation.pdf" download="Invitation.pdf" class="bg-yellow-600 text-white font-bold text-center px-6 py-3 rounded-md whitespace-nowrap w-full md:w-auto hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400"> Invitation </a>
+          </div>
+        </div>
+    </div>
+</div> 
+<div class="space-y-6 text-center mt-2 font-serif font-bold">
+    <div>
+        <p>As they embark on their journey of love and togetherness.</p>
+    </div>
+    <div class="space-y-2">
+        <ul>
+            <li>📅 Date: 29-08-2025</li>
+            <li>⏰ Time: 9.30AM - 10.30AM</li>
+            <li>📍 Venue: Marriage Hall</li>
+        </ul>
+    </div>
+    <div>
+        <p>Your presence will make our celebration even more special.
+            We look forward to sharing this beautiful moment with you! </p>
+    </div>
+</div>
+<div class="p-7 flex justify-center">
+    <button class="bg-yellow-600 text-white font-bold px-4 py-3 rounded-md w-full md:w-auto" >RSVP</button>
+</div>
+</div>
+</main>
+<footer class="text-center py-5">
+<p class="text-sm">© 2025 TAP TRAIL. All Rights Reserved.</p>
+</footer>
+  </body>
+</html>
+<script>
+  const carousel = document.getElementById("carousel");
+  const items = carousel.querySelector(".flex");
+  const prevBtn = document.getElementById("prev");
+  const nextBtn = document.getElementById("next");
+  const totalItems = items.children.length;
+  let currentIndex = 0;
+
+  // Auto slide every 3 seconds
+  setInterval(() => {
+    nextSlide();
+  }, 3000);
+
+  // Function to go to the next slide
+  function nextSlide() {
+    if (currentIndex < totalItems - 1) {
+      currentIndex++;
+    } else {
+      currentIndex = 0; // Reset to the first image after the last one
+    }
+    updateCarousel();
+  }
+
+  // Function to go to the previous slide
+  function prevSlide() {
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = totalItems - 1; // Go to the last image
+    }
+    updateCarousel();
+  }
+
+  // Update the carousel's transform property based on the current index
+  function updateCarousel() {
+    const offset = -100 * currentIndex; // Each item takes 100% width, so translate by -100% per slide
+    items.style.transform = `translateX(${offset}%)`;
+  }
+
+  // Event listeners for the navigation buttons
+  prevBtn.addEventListener("click", prevSlide);
+  nextBtn.addEventListener("click", nextSlide);
+</script>
